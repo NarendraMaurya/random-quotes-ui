@@ -1,0 +1,17 @@
+footer {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 4rem;
+}
+
+footer p {
+    color: #ccc;
+    font-size: 1.5rem;
+    font-family: 'Mate SC';
+    font-weight: 700;
+}
+footer span{
+    color:red;
+}
