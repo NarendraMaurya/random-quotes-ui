@@ -38,11 +38,10 @@ const Favorite = () => {
 
     useEffect(() => {
         apicall() 
-        
-       
     }, [])
     
     function handleMouseOver() {
+        apicall();
         setisHover(true);
     }
     function handleMouseOut() {
