@@ -27,8 +27,9 @@ const dropbtn = {
 
 const Favorite = () => {
 
-    const [isClick, setClick] = useState(false);
+    //const [isClick, setClick] = useState(false);
     const [Quotes, setQuotes] = useState([]);
+    const [isHover, setisHover] = useState(false);
 
     const apicall = async () => {
         const response = await axios.get(URL + '/favorite')
@@ -41,19 +42,18 @@ const Favorite = () => {
        
     }, [])
     
-    function showFav() {
-        if (isClick) setClick(false);
-        else {
-            setClick(true);
-            apicall();
-        };
+    function handleMouseOver() {
+        setisHover(true);
+    }
+    function handleMouseOut() {
+        setisHover(false);
     }
 
     
   return (
     <div className="dropdown" >
-    <button className="dropbtn" onClick={showFav} style={isClick?dropbtnClick:dropbtn} >Favorites</button>
-    <div className='dropdown-content' style={isClick?fav:dropdownContent}>
+    <button className="dropbtn" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} style={isHover?dropbtnClick:dropbtn} >Favorites</button>
+    <div className='dropdown-content'onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} style={isHover?fav:dropdownContent}>
               {Quotes.map((quote) => {
                   return <a href=".">{quote.content}</a>
             })}
